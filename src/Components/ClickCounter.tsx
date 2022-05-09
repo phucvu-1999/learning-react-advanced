@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { HOCProps } from "../constants";
+import UpdatedComponent from "../HOC/withCounter";
 
-const ClickCounter = () => {
-  const [count, setCount] = useState(0);
-
-  const onClickHandler = () => {
-    setCount(count + 1);
-  };
-
+const ClickCounter = (props: HOCProps) => {
   return (
     <div>
-      <button onClick={onClickHandler}>Click {count} times</button>
+      <button onClick={props.incrementCount}>Click {props.count} times</button>
     </div>
   );
 };
 
-export default ClickCounter;
+export default UpdatedComponent(ClickCounter);
