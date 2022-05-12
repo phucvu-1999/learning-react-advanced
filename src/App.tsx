@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import React, { useState, useCallback } from "react";
 import Content from "./Components/Content";
 
 import "./App.css";
@@ -6,15 +6,14 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
-  const increaseCount = () => {
-    setCount(count + 1);
-  };
+  const increaseCount = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
 
   return (
     <div className="App">
-      <Content count={count} />
+      <Content increase={increaseCount} />
       <p>{count}</p>
-      <button onClick={increaseCount}>Increase</button>
     </div>
   );
 }

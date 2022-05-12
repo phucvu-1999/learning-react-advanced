@@ -1,12 +1,16 @@
 import React from "react";
 
 interface Props {
-  count?: number;
+  increase: () => void;
 }
 
-const Content = ({ count }: Props) => {
-  console.log("Child component re-render !");
-  return <div>Hello {count}</div>;
+const Content = ({ increase }: Props) => {
+  console.log("Component re-render !!!");
+  return (
+    <div>
+      <button onClick={increase}>Increase</button>
+    </div>
+  );
 };
 
 export default React.memo(Content);
