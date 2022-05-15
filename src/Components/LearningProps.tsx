@@ -6,6 +6,7 @@ interface Props {
 }
 
 const LearningProps = ({ cars, children }: Props) => {
+  console.log("Hello !!");
   return <ul>{cars.map((car) => children(car))}</ul>;
 };
 
